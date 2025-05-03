@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Main" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="main.java.Main" />
+    <module name="untitled" />
+    <option name="VM_PARAMETERS" value="--add-opens javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

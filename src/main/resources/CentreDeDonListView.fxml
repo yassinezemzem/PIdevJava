@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.CentreDeDonListController"
+            prefHeight="600.0" prefWidth="900.0">
+    <top>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="10.0" left="20.0"/>
+            </padding>
+            <children>
+                <Label text="Centre De Don Management" style="-fx-font-weight: bold;">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField" promptText="Search by name..." HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="searchButton" text="Search" onAction="#handleSearch"/>
+                    <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh"/>
+                    <Button fx:id="addButton" text="Add New Centre" onAction="#handleAddCentre" 
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    
+    <center>
+        <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
+            <FlowPane fx:id="centresFlowPane" hgap="15" vgap="15" prefWrapLength="860">
+                <padding>
+                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                </padding>
+            </FlowPane>
+        </ScrollPane>
+    </center>
+    
+    <bottom>
+        <HBox spacing="10.0" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <Button fx:id="editButton" text="Edit Selected" onAction="#handleEditCentre" 
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;" prefWidth="120"/>
+            <Button fx:id="deleteButton" text="Delete Selected" onAction="#handleDeleteCentre" 
+                    style="-fx-background-color: #F44336; -fx-text-fill: white;" prefWidth="120"/>
+        </HBox>
+    </bottom>
+</BorderPane> 

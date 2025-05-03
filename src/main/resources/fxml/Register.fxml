@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.RegisterController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <Text text="Create Account" style="-fx-font-weight: bold;">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text text="Join Better Health" fill="#757575">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      
+      <VBox spacing="10.0" alignment="CENTER">
+         <TextField fx:id="fullNameField" promptText="Full Name" prefWidth="250.0" />
+         <TextField fx:id="emailField" promptText="Email" prefWidth="250.0" />
+         <TextField fx:id="phoneField" promptText="Phone" prefWidth="250.0" />
+         <PasswordField fx:id="passwordField" promptText="Password" prefWidth="250.0" />
+         <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" prefWidth="250.0" />
+         
+         <HBox spacing="10.0" alignment="CENTER">
+            <RadioButton fx:id="userRoleButton" text="User" selected="true" toggleGroup="$roleGroup" />
+            <RadioButton fx:id="adminRoleButton" text="Admin" toggleGroup="$roleGroup" />
+         </HBox>
+         
+         <Button fx:id="registerButton" mnemonicParsing="false" onAction="#handleRegister" prefWidth="250.0" style="-fx-background-color: #34495E; -fx-text-fill: white;" text="Register" />
+         <Hyperlink fx:id="loginLink" onAction="#handleLogin" text="Already have an account? Login" />
+      </VBox>
+   </children>
+   
+   <fx:define>
+      <ToggleGroup fx:id="roleGroup" />
+   </fx:define>
+</VBox> 
