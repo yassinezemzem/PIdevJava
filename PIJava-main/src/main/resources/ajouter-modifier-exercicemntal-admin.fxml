@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+
+<AnchorPane prefHeight="650.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            style="-fx-background-color: #f5f7fa;" fx:controller="org.example.controller.AjouterModifierExerciceMentalAdminController">
+
+    <children>
+        <!-- Title Label -->
+        <Label fx:id="ltitle" layoutX="280.0" layoutY="40.0" text="Exercice Mental"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2A3B4C;">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+
+        <!-- Video URL Field -->
+        <Label layoutX="80.0" layoutY="100.0" text="Video URL"
+               style="-fx-font-size: 14px; -fx-text-fill: #2A3B4C;"/>
+        <TextField fx:id="tfvideo" layoutX="180.0" layoutY="96.0" prefWidth="400.0"
+                   style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #e0e0e0; -fx-padding: 8;"/>
+
+        <!-- Title Field -->
+        <Label layoutX="80.0" layoutY="150.0" text="Titre"
+               style="-fx-font-size: 14px; -fx-text-fill: #2A3B4C;"/>
+        <TextField fx:id="tftitre" layoutX="180.0" layoutY="146.0" prefWidth="400.0"
+                   style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #e0e0e0; -fx-padding: 8;"/>
+
+        <!-- Description Field -->
+        <Label layoutX="80.0" layoutY="200.0" text="Description"
+               style="-fx-font-size: 14px; -fx-text-fill: #2A3B4C;"/>
+        <TextArea fx:id="tadesc" layoutX="180.0" layoutY="200.0" prefHeight="80.0" prefWidth="400.0"
+                  style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #e0e0e0; -fx-padding: 8;"/>
+
+        <!-- Duration Field -->
+        <Label layoutX="80.0" layoutY="300.0" text="Durée (minutes)"
+               style="-fx-font-size: 14px; -fx-text-fill: #2A3B4C;"/>
+        <TextField fx:id="tfduree" layoutX="180.0" layoutY="296.0" prefWidth="150.0"
+                   style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #e0e0e0; -fx-padding: 8;"/>
+
+        <!-- Objective Field -->
+        <Label layoutX="80.0" layoutY="350.0" text="Objectif"
+               style="-fx-font-size: 14px; -fx-text-fill: #2A3B4C;"/>
+        <TextArea fx:id="tfobjectif" layoutX="180.0" layoutY="350.0" prefHeight="80.0" prefWidth="400.0"
+                  style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #e0e0e0; -fx-padding: 8;"/>
+
+        <!-- Therapie ComboBox -->
+        <Label layoutX="80.0" layoutY="440.0" text="Therapie"
+               style="-fx-font-size: 14px; -fx-text-fill: #2A3B4C;"/>
+        <ComboBox fx:id="cbTherapie" layoutX="180.0" layoutY="436.0" prefWidth="400.0"
+                  style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #e0e0e0;"/>
+
+        <!-- Buttons -->
+        <Button layoutX="180.0" layoutY="500.0" mnemonicParsing="false" onAction="#submit" text="Submit"
+                style="
+                    -fx-background-color: #2ed573;
+                    -fx-text-fill: white;
+                    -fx-font-weight: bold;
+                    -fx-background-radius: 5;
+                    -fx-padding: 10 30;
+                    -fx-font-size: 14px;
+                    -fx-cursor: hand;
+                    -fx-effect: dropshadow(gaussian, rgba(46,213,115,0.3), 5, 0, 0, 0);">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+
+        <Button fx:id="btncancel" layoutX="580.0" layoutY="20.0" mnemonicParsing="false" onAction="#cancel" text="Cancel"
+                style="
+                    -fx-background-color: #ff4757;
+                    -fx-text-fill: white;
+                    -fx-font-weight: bold;
+                    -fx-background-radius: 5;
+                    -fx-padding: 8 20;
+                    -fx-font-size: 14px;
+                    -fx-cursor: hand;
+                    -fx-effect: dropshadow(gaussian, rgba(255,71,87,0.3), 5, 0, 0, 0);">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+
+        <!-- Image Preview -->
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="480.0" layoutY="300.0"
+                   pickOnBounds="true" preserveRatio="true"
+                   style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0); -fx-border-radius: 5;"/>
+    </children>
+</AnchorPane>

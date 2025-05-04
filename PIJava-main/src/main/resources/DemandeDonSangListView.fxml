@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.controller.DemandeDonSangListViewController"
+      prefHeight="600.0" prefWidth="700.0">
+    <children>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="10.0" left="20.0"/>
+            </padding>
+            <children>
+                <Label text="Blood Donation Requests Management" style="-fx-font-weight: bold;">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="statusComboBox" promptText="Filter by Status" minWidth="130"/>
+                    <Button fx:id="filterButton" text="Filter" onAction="#handleFilter"/>
+                    <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="addButton" text="Add New Request" onAction="#handleAddDemande" 
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+            </children>
+        </VBox>
+        
+        <VBox VBox.vgrow="ALWAYS" prefHeight="500">
+            <padding>
+                <Insets top="10.0" right="20.0" bottom="10.0" left="20.0"/>
+            </padding>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                <FlowPane fx:id="demandesFlowPane" hgap="15" vgap="15" prefWrapLength="860">
+                    <padding>
+                        <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                    </padding>
+                </FlowPane>
+            </ScrollPane>
+        </VBox>
+        
+        <HBox spacing="10.0" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <Button fx:id="updateStatusButton" text="Update Status" onAction="#handleUpdateStatus" 
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;" prefWidth="120"/>
+            <Button fx:id="deleteButton" text="Delete Selected" onAction="#handleDeleteDemande" 
+                    style="-fx-background-color: #F44336; -fx-text-fill: white;" prefWidth="120"/>
+        </HBox>
+    </children>
+</VBox> 

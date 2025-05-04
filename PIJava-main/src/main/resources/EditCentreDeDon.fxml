@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.controller.EditCentreDeDonController"
+            prefHeight="500.0" prefWidth="600.0">
+    <top>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="10.0" left="20.0"/>
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <Label text="Edit Centre De Don" style="-fx-font-weight: bold;">
+                        <font>
+                            <Font size="24.0"/>
+                        </font>
+                    </Label>
+                    <Label fx:id="idLabel" style="-fx-font-style: italic;">
+                        <font>
+                            <Font size="14.0"/>
+                        </font>
+                    </Label>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    
+    <center>
+        <GridPane hgap="15" vgap="15" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS"/>
+            
+            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            
+            <Label text="Telephone:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="telephoneField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            
+            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            
+            <Label text="Latitude:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="latitudeField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            
+            <Label text="Longitude:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="longitudeField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            
+            <Label text="Created Date:" GridPane.columnIndex="0" GridPane.rowIndex="6" style="-fx-font-weight: bold;"/>
+            <Label fx:id="createdAtLabel" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" prefWidth="100"/>
+                <ColumnConstraints hgrow="ALWAYS" prefWidth="400"/>
+            </columnConstraints>
+        </GridPane>
+    </center>
+    
+    <bottom>
+        <HBox spacing="15.0" alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="20" bottom="20" left="20"/>
+            </padding>
+            <Button fx:id="cancelButton" text="Cancel" onAction="#handleCancel" prefWidth="100"/>
+            <Button fx:id="saveButton" text="Save Changes" onAction="#handleSave" 
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;" prefWidth="150"/>
+        </HBox>
+    </bottom>
+</BorderPane> 

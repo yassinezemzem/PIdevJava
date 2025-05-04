@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.FrontPageController">
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="30.0" style="-fx-background-color: #3498db;" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+            <children>
+                <!-- Logo + Title -->
+                <StackPane alignment="CENTER_LEFT">
+                    <children>
+                        <SVGPath content="M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z" fill="WHITE" />
+                        <Label text="Better Health" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                            <padding>
+                                <Insets left="20.0" />
+                            </padding>
+                        </Label>
+                    </children>
+                </StackPane>
+
+                <!-- Navigation Buttons -->
+                <Button fx:id="accueilButton" onAction="#gotoAccueil" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-font-size: 14px;" text="Accueil" />
+                <Button fx:id="centreDeDonButton" onAction="#gotoCentreDeDon" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-font-size: 14px;" text="Centre de Don" />
+                <Button fx:id="therapieButton" onAction="#gotoTherapie" style="-fx-background-color: transparent; -fx-text-fill: WHITE; -fx-font-size: 14px;" text="Thérapie" />
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Main Content Area -->
+    <center>
+        <StackPane fx:id="contentArea" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" spacing="15.0">
+                    <children>
+                        <Label text="Welcome to Better Health" textAlignment="CENTER">
+                            <font>
+                                <Font name="System Bold" size="28.0" />
+                            </font>
+                            <style>-fx-text-fill: #2c3e50;</style>
+                        </Label>
+                        <Label text="Your wellbeing is our priority" textFill="#555555">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>

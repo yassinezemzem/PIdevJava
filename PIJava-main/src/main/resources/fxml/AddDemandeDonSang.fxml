@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.AddDemandeDonSangController">
+   <children>
+      <VBox alignment="CENTER" layoutX="100.0" layoutY="50.0" prefHeight="300.0" prefWidth="400.0" spacing="20.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label text="Add Blood Donation Request" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox spacing="10.0">
+               <children>
+                  <Label text="Select Blood Donation Center:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="centreDeDonComboBox" prefHeight="30.0" prefWidth="400.0" promptText="Select a center" />
+               </children>
+            </VBox>
+            <VBox spacing="10.0">
+               <children>
+                  <Label text="Blood Group:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="groupeSanguinComboBox" prefHeight="30.0" prefWidth="400.0" promptText="Select blood group" />
+               </children>
+            </VBox>
+            <VBox spacing="10.0">
+               <children>
+                  <Label text="Quantity (L):">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="quantiteField" prefHeight="30.0" promptText="Enter quantity in liters" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" spacing="30.0">
+               <children>
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSave" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #4CAF50;" text="Save" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancel" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f44336;" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane> 
