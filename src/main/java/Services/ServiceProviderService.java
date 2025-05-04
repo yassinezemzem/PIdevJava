@@ -17,7 +17,7 @@ public class ServiceProviderService {
 
     // CREATE
     public void saveServiceProvider(ServiceProvider serviceProvider) {
-        String query = "INSERT INTO service_providers (name, last_name, phone, service, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO service_provider (name, last_name, phone, service, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, serviceProvider.getName());
@@ -35,7 +35,7 @@ public class ServiceProviderService {
     // READ
     public List<ServiceProvider> getAllServiceProviders() {
         List<ServiceProvider> serviceProviders = new ArrayList<>();
-        String query = "SELECT * FROM service_providers";
+        String query = "SELECT * FROM service_provider";
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -59,7 +59,7 @@ public class ServiceProviderService {
 
     // UPDATE
     public void updateServiceProvider(ServiceProvider serviceProvider) {
-        String query = "UPDATE service_providers SET name = ?, last_name = ?, phone = ?, service = ?, latitude = ?, longitude = ? WHERE id = ?";
+        String query = "UPDATE service_provider SET name = ?, last_name = ?, phone = ?, service = ?, latitude = ?, longitude = ? WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, serviceProvider.getName());
@@ -77,7 +77,7 @@ public class ServiceProviderService {
 
     // DELETE
     public void deleteServiceProvider(int id) {
-        String query = "DELETE FROM service_providers WHERE id = ?";
+        String query = "DELETE FROM service_provider WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, id);

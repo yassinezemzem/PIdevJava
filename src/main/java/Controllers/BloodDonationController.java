@@ -55,7 +55,7 @@ public class BloodDonationController {
     @FXML
     void onRequest(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/DemandeDonSangList.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DemandeDonSangListView.fxml"));
             Parent view = loader.load();
             contentArea.getChildren().clear();
             contentArea.getChildren().add(view);

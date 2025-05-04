@@ -12,4 +12,8 @@ public interface IService<T> {
     void delete(T t) throws SQLException;
 
     List<T> readAll() throws SQLException;
+    void ajouter(T t);
+    void modifier(T t);
+    void supprimer(int id);
+    List<T> afficher();
 }

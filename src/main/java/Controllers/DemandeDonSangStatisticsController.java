@@ -61,6 +61,7 @@ public class DemandeDonSangStatisticsController implements Initializable {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
         Map<String, Long> data = demandes.stream()
+                .filter(d -> d.getCreatedAt() != null)
                 .collect(Collectors.groupingBy(d -> sdf.format(d.getCreatedAt()), Collectors.counting()));
         data.forEach((month, count) -> series.getData().add(new XYChart.Data<>(month, count)));
         monthlyChart.getData().add(series);

@@ -17,7 +17,7 @@ public class AppointmentService {
 
     // CREATE
     public void saveAppointment(Appointment appointment) {
-        String query = "INSERT INTO appointments (name, email, phone, service, date, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO appointment (name, email, phone, service, date, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, appointment.getName());
@@ -36,7 +36,7 @@ public class AppointmentService {
     // READ
     public List<Appointment> getAllAppointments() {
         List<Appointment> appointments = new ArrayList<>();
-        String query = "SELECT * FROM appointments";
+        String query = "SELECT * FROM appointment ";
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -61,7 +61,7 @@ public class AppointmentService {
 
     // UPDATE
     public void updateAppointment(Appointment appointment) {
-        String query = "UPDATE appointments SET name = ?, email = ?, phone = ?, service = ?, date = ?, latitude = ?, longitude = ? WHERE id = ?";
+        String query = "UPDATE appointment SET name = ?, email = ?, phone = ?, service = ?, date = ?, latitude = ?, longitude = ? WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, appointment.getName());
@@ -80,7 +80,7 @@ public class AppointmentService {
 
     // DELETE
     public void deleteAppointment(int id) {
-        String query = "DELETE FROM appointments WHERE id = ?";
+        String query = "DELETE FROM appointment  WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, id);

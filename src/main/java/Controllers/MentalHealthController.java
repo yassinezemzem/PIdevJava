@@ -15,9 +15,7 @@ public class MentalHealthController {
     @FXML
     private Button backButton;
     @FXML
-    private Button mentalExercisesButton;
-    @FXML
-    private Button therapyButton;
+    private Button checkOurServicesButton;
 
     @FXML
     void onBack(ActionEvent event) {
@@ -33,13 +31,16 @@ public class MentalHealthController {
     }
 
     @FXML
-    void onMentalExercises(ActionEvent event) {
-        showAlert("Mental Exercises", "Mental exercises feature coming soon!");
-    }
-
-    @FXML
-    void onTherapy(ActionEvent event) {
-        showAlert("Therapy", "Therapy resources coming soon!");
+    void onCheckOurServices(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FrontPage.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) checkOurServicesButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Better Health - Front Page");
+        } catch (IOException e) {
+            showAlert("Failed to load Front Page", e.getMessage());
+        }
     }
 
     private void showAlert(String title, String message) {

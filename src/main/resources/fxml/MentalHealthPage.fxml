@@ -24,7 +24,6 @@
                     <font><Font name="System Bold" size="16.0" /></font>
                 </Label>
                 <Label text="Practice mental wellness exercises" textFill="#757575" textAlignment="CENTER" wrapText="true" />
-                <Button fx:id="mentalExercisesButton" text="Mental Exercises" onAction="#onMentalExercises" style="-fx-background-color: #2ECC71; -fx-text-fill: white;" />
             </VBox>
             <VBox alignment="CENTER" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
                 <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0" /></padding>
@@ -32,8 +31,8 @@
                     <font><Font name="System Bold" size="16.0" /></font>
                 </Label>
                 <Label text="Access therapy resources" textFill="#757575" textAlignment="CENTER" wrapText="true" />
-                <Button fx:id="therapyButton" text="Therapy" onAction="#onTherapy" style="-fx-background-color: #9B59B6; -fx-text-fill: white;" />
             </VBox>
         </HBox>
+        <Button fx:id="checkOurServicesButton" text="Check Our Services" onAction="#onCheckOurServices" style="-fx-background-color: #3498DB; -fx-text-fill: white;" />
     </VBox>
 </StackPane> 
