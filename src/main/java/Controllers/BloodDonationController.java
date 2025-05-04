@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.Scene;
+import Entities.User;
 
 import java.io.IOException;
 
@@ -37,6 +38,12 @@ public class BloodDonationController {
     
     @FXML
     private ScrollPane mainServicesPane;
+    
+    private User currentUser;
+    
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
     
     @FXML
     public void initialize() {
@@ -85,6 +92,11 @@ public class BloodDonationController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/NotificationView.fxml"));
             Parent view = loader.load();
+            
+            // Get the controller and set the current user
+            NotificationController notificationController = loader.getController();
+            notificationController.setCurrentUser(currentUser); // Make sure currentUser is a class field
+            
             contentArea.getChildren().clear();
             contentArea.getChildren().add(view);
         } catch (IOException e) {

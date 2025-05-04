@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="eventInterfaces" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6000.0" prefWidth="1331.0" stylesheets="/css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EvennementAdminController">
+    <children>
+        <VBox fx:id="EventsInterface" prefHeight="907.0" prefWidth="1331.0">
+            <children>
+                <Pane fx:id="UpperSection" prefHeight="215.0" prefWidth="1331.0" styleClass="UpperSection" stylesheets="/css/style.css">
+                    <children>
+                        <TextField layoutX="159.0" layoutY="41.0" prefHeight="37.0" prefWidth="265.0" styleClass="search-field" stylesheets="/css/style.css" />
+                        <Label layoutX="55.0" layoutY="41.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="115.0" styleClass="label-style" stylesheets="/css/style.css" text="Rechercher" />
+                        <Button layoutX="508.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#GoToAddEventPagee" prefHeight="46.0" prefWidth="187.0" styleClass="UpperSectionBtn" stylesheets="/css/style.css" text="Ajouter" />
+                        <Button layoutX="623.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#GoToActivitesPagePagee" prefHeight="46.0" prefWidth="187.0" styleClass="UpperSectionBtn" stylesheets="/css/style.css" text="Categories" />
+                        <Button layoutX="855.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#GoToParticipantPagee" prefHeight="46.0" prefWidth="187.0" styleClass="UpperSectionBtn" stylesheets="/css/style.css" text="Participants" />
+                        <Button layoutX="1090.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleAfficherStatistiques" prefHeight="46.0" prefWidth="187.0" styleClass="UpperSectionBtn" stylesheets="/css/style.css" text="Statistiques" />
+                    </children>
+                </Pane>
+                <Pane fx:id="ListContainer" prefHeight="694.0" prefWidth="1331.0" style="-fx-background-color: #00000;">
+                    <children>
+                        <Label layoutX="61.0" layoutY="39.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="326.0" stylesheets="@/css/style.css" text="Liste des évenements">
+                            <styleClass>
+                                <String fx:value="label-style" />
+                                <String fx:value="title" />
+                            </styleClass>
+                        </Label>
+                        <TableView fx:id="eventsTable" layoutX="37.0" layoutY="96.0" prefHeight="544.0" prefWidth="1217.0">
+                            <columns>
+                                <TableColumn fx:id="nameColumn" prefWidth="140.8000259399414" text="Nom" />
+                                <TableColumn fx:id="descriptionColumn" prefWidth="143.99996948242188" text="Description" />
+                                <TableColumn fx:id="dateDColumn" prefWidth="204.0" text="Date début" />
+                                <TableColumn fx:id="dateFColumn" prefWidth="114.4000244140625" text="Date fin" />
+                                <TableColumn fx:id="prixColumn" prefWidth="88.0" text="Prix (TN)" />
+                                <TableColumn fx:id="locationColumn" prefWidth="137.59991455078125" text="Lieu" />
+                                <TableColumn fx:id="placeColumn" prefWidth="103.20001220703125" text="Places dispo" />
+                                <TableColumn fx:id="actionsColumn" prefWidth="342.40020751953125" text="Actions" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
+        <Pane fx:id="AddEventPage" prefHeight="907.0" prefWidth="1331.0" visible="false">
+            <children>
+                <!-- Add your AddEventPage content here -->
+            </children>
+        </Pane>
+        <Pane fx:id="UpdateEventPage" prefHeight="907.0" prefWidth="1331.0" visible="false">
+            <children>
+                <!-- Add your UpdateEventPage content here -->
+            </children>
+        </Pane>
+        <VBox fx:id="ActivitesPage" prefHeight="907.0" prefWidth="1331.0" visible="false">
+            <children>
+                <!-- Add your ActivitesPage content here -->
+            </children>
+        </VBox>
+        <VBox fx:id="ParticipantsPage" prefHeight="907.0" prefWidth="1331.0" visible="false">
+            <children>
+                <!-- Add your ParticipantsPage content here -->
+            </children>
+        </VBox>
+        <Pane fx:id="ADDAcitivitesPage" prefHeight="907.0" prefWidth="1331.0" visible="false">
+            <children>
+                <!-- Add your ADDAcitivitesPage content here -->
+            </children>
+        </Pane>
+        <Pane fx:id="UpdateAcitivitesPage" prefHeight="907.0" prefWidth="1331.0" visible="false">
+            <children>
+                <!-- Add your UpdateAcitivitesPage content here -->
+            </children>
+        </Pane>
+    </children>
+</VBox> 

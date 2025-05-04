@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+
+<VBox fx:id="formSection" alignment="CENTER" spacing="10" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddAppointmentController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Book Appointment" />
+
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="nameField" promptText="Enter your name" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200"/>
+
+        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="emailField" promptText="Enter your email" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200"/>
+
+        <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="phoneField" promptText="Enter your phone number" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="200"/>
+
+        <Label text="Service:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="serviceComboBox" promptText="Select Service" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="200"/>
+
+        <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;"/>
+        <DatePicker fx:id="datePicker" promptText="Select date" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="200"/>
+    </GridPane>
+
+    <Label text="Select Location on Map:" style="-fx-font-weight: bold; -fx-padding: 10 0 5 0;"/>
+    <WebView fx:id="mapWebView" prefHeight="300.0" prefWidth="600.0">
+        <VBox.margin>
+            <Insets top="10.0" bottom="10.0"/>
+        </VBox.margin>
+    </WebView>
+
+    <!-- Hidden fields for coordinates -->
+    <TextField fx:id="latitudeField" visible="false" managed="false" />
+    <TextField fx:id="longitudeField" visible="false" managed="false" />
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button onAction="#handleSubmit" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" text="Submit" />
+        <Button fx:id="btnViewAppointments" onAction="#handleViewAppointments" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;" text="View Appointments" />
+        <Button onAction="#handleReturnButton" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;" text="Return" />
+    </HBox>
+</VBox> 

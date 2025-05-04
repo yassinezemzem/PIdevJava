@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class UserService {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/test1";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/pidevjava";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
     

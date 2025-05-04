@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CentreDeDonService {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/test1";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/pidevjava";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
     

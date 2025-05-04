@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.EventClientController"
+            prefWidth="800" prefHeight="600"
+            stylesheets="/css/style.css">
+
+    <VBox spacing="15"
+          AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+
+        <!-- Back button and title -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="btnBack" text="Retour" onAction="#handleBack" />
+            <Label text="Événements à venir"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;"
+                   alignment="CENTER_LEFT"/>
+        </HBox>
+
+        <!-- Barre de filtres + statistiques -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <TextField fx:id="txtRecherche"
+                       HBox.hgrow="ALWAYS"
+                       promptText="Rechercher par nom ou lieu..."/>
+            <DatePicker fx:id="dateDebutFiltre" promptText="Date début"/>
+            <DatePicker fx:id="dateFinFiltre" promptText="Date fin"/>
+            <ComboBox fx:id="comboBoxStatut" promptText="Statut"/>
+            <Button fx:id="btnFiltrer" text="Filtrer"/>
+            <Button fx:id="btnStats" text="Statistiques"/>
+            <Button fx:id="btnCalendrier" text="Calendrier" onAction="#ouvrirCalendrier"/>
+        </HBox>
+
+        <!-- Pagination -->
+        <Pagination fx:id="pagination" prefWidth="760"/>
+
+        <!-- Cartes dans ScrollPane -->
+        <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+            <FlowPane fx:id="eventCardContainer"
+                      hgap="20" vgap="20" prefWrapLength="760">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+            </FlowPane>
+        </ScrollPane>
+
+        <!-- Weather Display -->
+        <HBox fx:id="weatherBox" spacing="10" alignment="CENTER_LEFT" styleClass="weather-box">
+            <Label fx:id="weatherLocation" text="Météo: Sélectionnez un événement"/>
+            <ImageView fx:id="weatherIcon" fitWidth="50" fitHeight="50"/>
+            <Label fx:id="weatherTemp" text=""/>
+            <Label fx:id="weatherDesc" text=""/>
+        </HBox>
+    </VBox>
+</AnchorPane> 

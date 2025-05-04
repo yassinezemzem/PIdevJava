@@ -4,15 +4,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import utils.SessionManager;
-import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +44,11 @@ public class UserDashboardController implements Initializable {
     private Button eventsButton;
     @FXML
     private Button medicalProductsButton;
+
+    @FXML
+    private Button btnProfile;
+    @FXML
+    private Button btnLogout;
 
     private String currentView = "dashboard";
 
@@ -95,6 +101,10 @@ public class UserDashboardController implements Initializable {
                 // Load the Blood Donation view
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/BloodDonationPage.fxml"));
                 Parent view = loader.load();
+                
+                // Get the controller and set the current user
+                BloodDonationController bloodDonationController = loader.getController();
+                bloodDonationController.setCurrentUser(SessionManager.getCurrentUser());
                 
                 // Add the view to our content area
                 contentArea.getChildren().add(view);
@@ -167,10 +177,46 @@ public class UserDashboardController implements Initializable {
         }
     }
 
+    @FXML
+    protected void onProfile() {
+        try {
+            loadContent("/fxml/Profile.fxml");
+        } catch (IOException e) {
+            showError("Failed to load profile", e.getMessage());
+        }
+    }
+
+    @FXML
+    protected void onLogout() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) btnLogout.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Better Health - Login");
+        } catch (IOException e) {
+            showError("Failed to logout", e.getMessage());
+        }
+    }
+
+    protected void loadContent(String fxmlPath) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        Node content = loader.load();
+        contentArea.getChildren().setAll(content);
+    }
+
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
         alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    protected void showError(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(title);
         alert.setContentText(message);
         alert.showAndWait();
     }

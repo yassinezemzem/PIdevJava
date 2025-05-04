@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.AdminStatistiquesController" >
+
+    <VBox spacing="20" alignment="CENTER" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+        <Button layoutX="30.0" layoutY="26.0" mnemonicParsing="false" onAction="#GoToEventPagee" prefHeight="56.0" prefWidth="40.0" styleClass="UpperSectionBtn" stylesheets="/css/style.css">
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="/icons/back.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Label text="Statistiques des Événements" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <HBox spacing="30" alignment="CENTER">
+            <BarChart fx:id="barChartParticipants" title="Participants par Événement"
+                      legendVisible="true" animated="true" prefHeight="400" prefWidth="400">
+                <xAxis>
+                    <CategoryAxis label="Événements" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Nombre de Participants" />
+                </yAxis>
+            </BarChart>
+
+            <BarChart fx:id="barChartEvenementsParLieu" title="Événements par Lieu"
+                      legendVisible="true" animated="true" prefHeight="400" prefWidth="400">
+                <xAxis>
+                    <CategoryAxis label="Lieu" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Nombre d'Événements" />
+                </yAxis>
+            </BarChart>
+        </HBox>
+
+        <HBox spacing="30" alignment="CENTER">
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Total des Événements" style="-fx-font-size: 16px;"/>
+                <Label fx:id="totalEvenementsLabel" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Total des Participants" style="-fx-font-size: 16px;"/>
+                <Label fx:id="totalParticipantsLabel" text="0" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="30" alignment="CENTER">
+            <PieChart fx:id="pieChartTopEvenements" title="Top 5 Événements" prefWidth="300"/>
+            <VBox spacing="10">
+                <Label text="Statistiques descriptives:" style="-fx-font-weight: bold;"/>
+                <Label text="Moyenne:"/>
+                <Label fx:id="lblMoyenne" style="-fx-text-fill: #2e8b57;"/>
+                <Label text="Médiane:"/>
+                <Label fx:id="lblMediane" style="-fx-text-fill: #2e8b57;"/>
+                <Label text="Écart-type:"/>
+                <Label fx:id="lblEcartType" style="-fx-text-fill: #2e8b57;"/>
+            </VBox>
+            <VBox spacing="10" prefWidth="300">
+                <Label text="Test statistique:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblTestStatistique" wrapText="true"/>
+            </VBox>
+        </HBox>
+
+    </VBox>
+
+</AnchorPane> 

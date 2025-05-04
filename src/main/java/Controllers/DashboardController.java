@@ -168,6 +168,19 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void onAddEventAdmin(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/tools1.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) rootPane.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Admin - Event Management");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     private void highlightActiveButton(Button activeButton) {
         // Reset all buttons to transparent background

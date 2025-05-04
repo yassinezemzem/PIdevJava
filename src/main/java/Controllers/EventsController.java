@@ -32,7 +32,15 @@ public class EventsController {
 
     @FXML
     void onCheckEvents(ActionEvent event) {
-        showAlert("Events", "Events feature coming soon! You can participate in the events.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EventClient.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) checkEventsButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Better Health - Events");
+        } catch (IOException e) {
+            showAlert("Error", "Failed to load Events page: " + e.getMessage());
+        }
     }
 
     private void showAlert(String title, String message) {
