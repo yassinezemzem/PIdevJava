@@ -92,7 +92,7 @@ public class AfficherTherapieAdminController {
     @FXML
     void stat(ActionEvent event) {
         FXMLLoader fxml = new FXMLLoader(
-                getClass().getResource("/therapie-stat-view.fxml"));
+                getClass().getResource("/fxml/therapie-stat-view.fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxml.load());

@@ -41,6 +41,12 @@ public class DashboardController implements Initializable {
     private Button statisticsButton;
     
     @FXML
+    private Button therapyListButton;
+    
+    @FXML
+    private Button mentalExerciseListButton;
+    
+    @FXML
     private Label welcomeLabel;
 
     private String currentView = "dashboard";
@@ -164,6 +170,30 @@ public class DashboardController implements Initializable {
             Parent view = loader.load();
             contentArea.getChildren().add(view);
             // Optionally update currentView if you use it
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onTherapyList(ActionEvent event) {
+        try {
+            contentArea.getChildren().clear();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/afficher-therapie-admin.fxml"));
+            Parent view = loader.load();
+            contentArea.getChildren().add(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onMentalExerciseList(ActionEvent event) {
+        try {
+            contentArea.getChildren().clear();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/afficher-exercicemntal-admin.fxml"));
+            Parent view = loader.load();
+            contentArea.getChildren().add(view);
         } catch (IOException e) {
             e.printStackTrace();
         }
