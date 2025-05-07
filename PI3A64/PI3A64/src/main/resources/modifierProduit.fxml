@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.modifierProduitController">
+    <children>
+        <!-- Sidebar -->
+        <VBox prefHeight="700.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to bottom, #1E88E5, #42A5F5); -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);">
+            <children>
+                <Label alignment="CENTER" prefHeight="80.0" prefWidth="250.0" text="Inventory App" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="26.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                </Label>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#naviguerAjouterCategorie" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Ajouter Catégorie" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#naviguerAfficherCategorie" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Afficher Catégories" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#naviguerAjouterProduit" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Ajouter Produit" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#retourAffichage" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 0;" text="Afficher Produits" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+        </VBox>
+        
+        <!-- Main Content -->
+        <AnchorPane layoutX="250.0" prefHeight="700.0" prefWidth="750.0" style="-fx-background-color: #F5F7FA;">
+            <children>
+                <!-- Header -->
+                <HBox alignment="CENTER_LEFT" layoutX="0.0" layoutY="0.0" prefHeight="80.0" prefWidth="750.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                    <children>
+                        <Label text="Modifier un Produit" textFill="#2C3E50">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="40.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                
+                <!-- Scrollable Form Content -->
+                <ScrollPane fitToWidth="true" layoutX="0.0" layoutY="80.0" prefHeight="620.0" prefWidth="750.0" style="-fx-background-color: transparent; -fx-background: transparent; -fx-border-color: transparent; -fx-padding: 0;">
+                    <content>
+                        <VBox prefWidth="730.0" spacing="20.0" style="-fx-background-color: transparent; -fx-padding: 40 40 40 40;">
+                            <children>
+                                <Label text="Sélectionner un produit" style="-fx-font-size: 16px; -fx-text-fill: #7F8C8D;">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <ComboBox fx:id="cbProduits" prefHeight="50.0" prefWidth="670.0" promptText="Sélectionner un produit" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px;">
+                                    <effect>
+                                        <DropShadow height="4.0" radius="1.5" width="4.0" color="rgba(0,0,0,0.1)" />
+                                    </effect>
+                                </ComboBox>
+                                
+                                <Label text="Nom du produit" style="-fx-font-size: 16px; -fx-text-fill: #7F8C8D;">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <TextField fx:id="tfnom" prefHeight="50.0" prefWidth="670.0" promptText="Nom du produit" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px; -fx-padding: 10;">
+                                    <effect>
+                                        <DropShadow height="4.0" radius="1.5" width="4.0" color="rgba(0,0,0,0.1)" />
+                                    </effect>
+                                </TextField>
+                                
+                                <Label layoutX="30.0" layoutY="230.0" text="Description:" textFill="#1E88E5">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="tfdescription" layoutX="30.0" layoutY="260.0" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-color: #B3E5FC; -fx-border-radius: 5;" />
+                                
+                                <Label layoutX="30.0" layoutY="300.0" text="Image du produit:" textFill="#1E88E5">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                
+                                <HBox layoutX="30.0" layoutY="330.0" spacing="10">
+                                    <Button fx:id="btnChooseImage" mnemonicParsing="false" onAction="#chooseImage" text="Choisir une image" style="-fx-background-color: #42A5F5; -fx-text-fill: white; -fx-background-radius: 5;">
+                                        <font>
+                                            <Font size="12.0" />
+                                        </font>
+                                    </Button>
+                                    <Label fx:id="lblImagePath" text="Aucune image sélectionnée" />
+                                </HBox>
+                                
+                                <ImageView fx:id="imagePreview" layoutX="30.0" layoutY="370.0" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" />
+                                
+                                <Label layoutX="30.0" layoutY="480.0" text="Quantité:" textFill="#1E88E5">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="tfquantite" layoutX="30.0" layoutY="510.0" prefHeight="30.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-color: #B3E5FC; -fx-border-radius: 5;" />
+                                
+                                <Label text="Catégorie" style="-fx-font-size: 16px; -fx-text-fill: #7F8C8D;">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <ComboBox fx:id="cbCategories" prefHeight="50.0" prefWidth="670.0" promptText="Sélectionner une catégorie" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 14px;">
+                                    <effect>
+                                        <DropShadow height="4.0" radius="1.5" width="4.0" color="rgba(0,0,0,0.1)" />
+                                    </effect>
+                                </ComboBox>
+                                
+                                <HBox spacing="20.0">
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#modifierProduit" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 8;" text="Modifier" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                            <effect>
+                                                <DropShadow height="8.0" radius="3.5" width="8.0">
+                                                    <color>
+                                                        <Color opacity="0.15" />
+                                                    </color>
+                                                </DropShadow>
+                                            </effect>
+                                        </Button>
+                                        
+                                        <Button mnemonicParsing="false" onAction="#retourAffichage" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #95A5A6; -fx-text-fill: white; -fx-background-radius: 8;" text="Annuler" textFill="WHITE">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                            <effect>
+                                                <DropShadow height="8.0" radius="3.5" width="8.0">
+                                                    <color>
+                                                        <Color opacity="0.15" />
+                                                    </color>
+                                                </DropShadow>
+                                            </effect>
+                                        </Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets top="30.0" bottom="20.0" />
+                                    </VBox.margin>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane> 

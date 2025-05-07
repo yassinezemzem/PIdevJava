@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminDashboardController">
+    <children>
+        <!-- Sidebar -->
+        <VBox prefHeight="700.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to bottom, #1E88E5, #42A5F5); -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);">
+            <children>
+                <Label alignment="CENTER" prefHeight="80.0" prefWidth="250.0" text="Admin Dashboard" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                </Label>
+                
+                <Button fx:id="btnAddCategory" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToAddCategory" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Ajouter Catégorie" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button fx:id="btnDisplayCategories" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToDisplayCategories" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Afficher Catégories" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button fx:id="btnAddProduct" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToAddProduct" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Ajouter Produit" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button fx:id="btnDisplayProducts" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToDisplayProducts" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Afficher Produits" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+
+                <Button fx:id="btnStatistics" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToStatistics" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Statistiques" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+
+                <VBox VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </VBox>
+                
+                <Button fx:id="btnBackToHome" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: rgba(0,0,0,0.2); -fx-text-fill: white; -fx-background-radius: 0;" text="Retour à l'accueil" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+        </VBox>
+        
+        <!-- Main Content -->
+        <StackPane fx:id="contentArea" layoutX="250.0" prefHeight="700.0" prefWidth="750.0" style="-fx-background-color: #F5F7FA;">
+            <children>
+                <!-- Welcome screen -->
+                <VBox alignment="CENTER" prefHeight="700.0" prefWidth="750.0" spacing="20.0">
+                    <children>
+                        <Label text="Bienvenue dans l'espace administrateur" textFill="#2C3E50">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Sélectionnez une option dans le menu latéral" textFill="#34495E">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane> 

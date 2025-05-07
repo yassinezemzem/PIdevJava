@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.supprimerProduitController">
+    <children>
+        <!-- Sidebar -->
+        <VBox prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(#1E88E5, #42A5F5);">
+            <children>
+                <Label alignment="CENTER" prefHeight="70.0" prefWidth="250.0" text="Inventory App" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </Label>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Ajouter Catégorie" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Afficher Catégories" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Ajouter Produit" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                
+                <Button alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#retourAffichage" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Afficher Produits" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        
+        <!-- Main Content -->
+        <AnchorPane layoutX="250.0" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: #E1F5FE;">
+            <children>
+                <Label layoutX="30.0" layoutY="30.0" text="Supprimer un Produit" textFill="#1E88E5">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                
+                <TableView fx:id="tvProduits" layoutX="30.0" layoutY="100.0" prefHeight="300.0" prefWidth="590.0" style="-fx-background-color: white; -fx-border-color: #B3E5FC; -fx-border-radius: 5;">
+                    <columns>
+                        <TableColumn fx:id="colNom" prefWidth="150.0" text="Nom" />
+                        <TableColumn fx:id="colDescription" prefWidth="200.0" text="Description" />
+                        <TableColumn fx:id="colQuantite" prefWidth="100.0" text="Quantité" />
+                        <TableColumn fx:id="colCategorie" prefWidth="100.0" text="Catégorie" />
+                    </columns>
+                </TableView>
+                
+                <Button layoutX="30.0" layoutY="430.0" mnemonicParsing="false" onAction="#supprimerProduit" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #42A5F5; -fx-text-fill: white; -fx-background-radius: 5;" text="Supprimer" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                
+                <Button layoutX="200.0" layoutY="430.0" mnemonicParsing="false" onAction="#retourAffichage" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #42A5F5; -fx-text-fill: white; -fx-background-radius: 5;" text="Retour" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                
+                <Label layoutX="30.0" layoutY="500.0" text="Sélectionnez un produit dans le tableau et cliquez sur 'Supprimer'" textFill="#757575">
+                    <font>
+                        <Font style="italic" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane> 

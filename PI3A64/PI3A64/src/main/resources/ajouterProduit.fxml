@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ajouterProduitController">
+    <children>
+
+        <!-- Sidebar -->
+        <VBox prefHeight="700.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to bottom, #1E88E5, #42A5F5);">
+            <children>
+                <Label text="Inventory App" textFill="WHITE" alignment="CENTER" prefHeight="80.0" prefWidth="250.0">
+                    <font>
+                        <Font name="System Bold" size="26.0"/>
+                    </font>
+                </Label>
+
+                <Button text="Ajouter Catégorie" mnemonicParsing="false" onAction="#naviguerAjouterCategorie" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                    <padding><Insets left="30.0"/></padding>
+                    <font><Font size="14.0"/></font>
+                </Button>
+
+                <Button text="Afficher Catégories" mnemonicParsing="false" onAction="#naviguerAfficherCategorie" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                    <padding><Insets left="30.0"/></padding>
+                    <font><Font size="14.0"/></font>
+                </Button>
+
+                <Button text="Ajouter Produit" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white;">
+                    <padding><Insets left="30.0"/></padding>
+                    <font><Font size="14.0"/></font>
+                </Button>
+
+                <Button text="Afficher Produits" mnemonicParsing="false" onAction="#afficher" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white;">
+                    <padding><Insets left="30.0"/></padding>
+                    <font><Font size="14.0"/></font>
+                </Button>
+            </children>
+            <padding><Insets top="20.0"/></padding>
+        </VBox>
+
+        <!-- Main Content -->
+        <AnchorPane layoutX="250.0" prefWidth="750.0" prefHeight="700.0" style="-fx-background-color: #F5F7FA;">
+            <children>
+
+                <!-- Header -->
+                <HBox prefHeight="80.0" prefWidth="750.0" alignment="CENTER_LEFT" style="-fx-background-color: white;">
+                    <children>
+                        <Label text="Ajouter un Produit" textFill="#2C3E50">
+                            <font><Font name="System Bold" size="24.0"/></font>
+                        </Label>
+                    </children>
+                </HBox>
+
+                <!-- Form -->
+                <VBox layoutX="40.0" layoutY="120.0" spacing="20.0" prefWidth="670.0">
+                    <children>
+
+                        <!-- Nom -->
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Nom" textFill="#2C3E50">
+                                    <font><Font size="16.0"/></font>
+                                </Label>
+                                <TextField fx:id="tfnom" promptText="Nom du produit" style="-fx-background-color: white; -fx-border-color: #E1E7EC; -fx-border-radius: 8; -fx-background-radius: 8;" prefHeight="50.0" prefWidth="670.0"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Description -->
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Description" textFill="#2C3E50">
+                                    <font><Font size="16.0"/></font>
+                                </Label>
+                                <TextField fx:id="tfdescription" promptText="Description" style="-fx-background-color: white; -fx-border-color: #E1E7EC; -fx-border-radius: 8; -fx-background-radius: 8;" prefHeight="50.0" prefWidth="670.0"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Quantité -->
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Quantité" textFill="#2C3E50">
+                                    <font><Font size="16.0"/></font>
+                                </Label>
+                                <TextField fx:id="tfquantite" promptText="Quantité" style="-fx-background-color: white; -fx-border-color: #E1E7EC; -fx-border-radius: 8; -fx-background-radius: 8;" prefHeight="50.0" prefWidth="670.0"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Catégorie -->
+                        <VBox spacing="5.0">
+                            <children>
+                                <Label text="Catégorie" textFill="#2C3E50">
+                                    <font><Font size="16.0"/></font>
+                                </Label>
+                                <ComboBox fx:id="cbCategorie" promptText="Sélectionner une catégorie" style="-fx-background-color: white; -fx-border-color: #E1E7EC; -fx-border-radius: 8; -fx-background-radius: 8;" prefHeight="50.0" prefWidth="670.0"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Image -->
+                        <VBox spacing="10.0">
+                            <children>
+                                <Label text="Image du produit:" textFill="#1E88E5">
+                                    <font><Font size="14.0"/></font>
+                                </Label>
+                                <HBox spacing="10.0">
+                                    <children>
+                                        <Button fx:id="btnChooseImage" onAction="#chooseImage" text="Choisir une image" style="-fx-background-color: #42A5F5; -fx-text-fill: white; -fx-background-radius: 5;"/>
+                                        <Label fx:id="lblImagePath" text="Aucune image sélectionnée"/>
+                                    </children>
+                                </HBox>
+                                <ImageView fx:id="imagePreview" fitHeight="100.0" fitWidth="100.0" preserveRatio="true"/>
+                            </children>
+                        </VBox>
+
+                        <!-- Buttons -->
+                        <HBox spacing="15.0" alignment="CENTER">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#enregistrerProduit" prefHeight="50.0" prefWidth="150.0"
+                                        style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-background-radius: 8;" text="Enregistrer">
+                                    <font><Font name="System Bold" size="14.0"/></font>
+                                </Button>
+
+                                <Button mnemonicParsing="false" onAction="#AjouterProduit" prefHeight="50.0" prefWidth="150.0"
+                                        style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-background-radius: 8;" text="Enregistrer produit">
+                                    <font><Font name="System Bold" size="14.0"/></font>
+                                </Button>
+
+                                <Button mnemonicParsing="false" onAction="#afficher" prefHeight="50.0" prefWidth="150.0"
+                                        style="-fx-background-color: white; -fx-text-fill: #3498DB; -fx-border-color: #3498DB; -fx-border-radius: 8; -fx-background-radius: 8;" text="Voir Produits">
+                                    <font><Font size="14.0"/></font>
+                                </Button>
+                            </children>
+                        </HBox>
+
+                    </children>
+                </VBox>
+
+            </children>
+        </AnchorPane>
+
+    </children>
+</AnchorPane>
