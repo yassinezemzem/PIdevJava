@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="eventInterfaces" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="6000.0" prefWidth="1000.0" style="-fx-background-color: #f5f5f5;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.EvennementAdminController">
+
+    <VBox fx:id="EventsInterface" prefHeight="907.0" prefWidth="1000.0" spacing="20">
+        <padding>
+            <Insets top="20" right="40" bottom="20" left="40"/>
+        </padding>
+
+        <!-- Upper Section -->
+        <HBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);"
+              alignment="CENTER_LEFT" spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <VBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Rechercher" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2A3B4C;"/>
+                <TextField style="-fx-background-color: #f5f5f5; -fx-background-radius: 5; -fx-padding: 8;" prefWidth="265.0"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button mnemonicParsing="false" onAction="#GoToAddEventPagee"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                    prefHeight="46.0" prefWidth="187.0" text="Ajouter"/>
+
+            <Button mnemonicParsing="false" onAction="#GoToActivitesPagePagee"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                    prefHeight="46.0" prefWidth="187.0" text="Categories"/>
+
+            <Button mnemonicParsing="false" onAction="#GoToParticipantPagee"
+                    style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                    prefHeight="46.0" prefWidth="187.0" text="Participants"/>
+
+            <Button mnemonicParsing="false" onAction="#handleAfficherStatistiques"
+                    style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                    prefHeight="46.0" prefWidth="187.0" text="Statistiques"/>
+        </HBox>
+
+        <!-- List Container -->
+        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Liste des évenements" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2A3B4C;"/>
+
+            <TableView fx:id="eventsTable" prefHeight="544.0" prefWidth="1217.0" style="-fx-background-color: transparent;">
+                <columns>
+                    <TableColumn fx:id="idAvisColumn" prefWidth="100.0" text="ID" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="nameColumn" prefWidth="140.8" text="Nom" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="descriptionColumn" prefWidth="144.0" text="Description" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="dateDColumn" prefWidth="204.0" text="Date début" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="dateFColumn" prefWidth="114.4" text="Date fin" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="prixColumn" prefWidth="88.0" text="Prix (TN)" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="locationColumn" prefWidth="137.6" text="Lieu" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="placeColumn" prefWidth="103.2" text="Places dispo" style="-fx-font-weight: bold;"/>
+                    <TableColumn fx:id="actionsColumn" prefWidth="342.4" text="Actions" style="-fx-font-weight: bold;"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </VBox>
+
+    <!-- Other Pages -->
+    <Pane fx:id="AddEventPage" prefHeight="907.0" prefWidth="1000.0" visible="false">
+        <children>
+            <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <Label text="Ajouter un événement" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2A3B4C;"/>
+
+                <GridPane hgap="20" vgap="20">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <Label text="Nom:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="nomEventInput" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="descEventInput" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Date début:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <DatePicker fx:id="dateDebutInput" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Date fin:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <DatePicker fx:id="dateFinInput" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Prix:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="prixEventInput" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <Label text="Lieu:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <TextField fx:id="lieuEventInput" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                    <Label text="Places disponibles:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="placesEventInput" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                    <Label text="Catégorie:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <ComboBox fx:id="categorieComboBox" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+                    <Label text="Image:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <TextField fx:id="imageEventInput" HBox.hgrow="ALWAYS"/>
+                        <Button text="Choisir" onAction="#handleChooseImage"
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"/>
+                    </HBox>
+                </GridPane>
+
+                <HBox spacing="20" alignment="CENTER_RIGHT">
+                    <Button text="Annuler" onAction="#GoToEventPagee"
+                            style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"/>
+                    <Button text="Ajouter" onAction="#handleAddEvent"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"/>
+                </HBox>
+            </VBox>
+        </children>
+    </Pane>
+    <Pane fx:id="UpdateEventPage" prefHeight="907.0" prefWidth="1000.0" visible="false">
+        <children>
+            <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <Label text="Modifier un événement" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2A3B4C;"/>
+
+                <GridPane hgap="20" vgap="20">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <Label text="Nom:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="nomEventUpdate" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextArea fx:id="descEventUpdate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Date début:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <DatePicker fx:id="dateDebutUpdate" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Date fin:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <DatePicker fx:id="dateFinUpdate" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Prix:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="prixEventUpdate" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <Label text="Lieu:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <TextField fx:id="lieuEventUpdate" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                    <Label text="Places disponibles:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="placesEventUpdate" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                    <Label text="Catégorie:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <ComboBox fx:id="categorieComboUpdate" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+                    <Label text="Image:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                    <TextField fx:id="imageEventUpdate" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                </GridPane>
+
+                <HBox spacing="20" alignment="CENTER_RIGHT">
+                    <Button text="Annuler" onAction="#GoToEventPagee"
+                            style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"/>
+                    <Button text="Modifier" onAction="#handleSubmitUpdateEvent"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"/>
+                </HBox>
+            </VBox>
+        </children>
+    </Pane>
+
+    <VBox fx:id="ActivitesPage" prefHeight="907.0" prefWidth="1000.0" visible="false">
+        <children>
+            <HBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);"
+                  alignment="CENTER" spacing="20">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <Button mnemonicParsing="false" onAction="#GoToAddActivitesPagePagee"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                        prefHeight="46.0" prefWidth="187.0" text="Ajouter"/>
+            </HBox>
+
+            <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <Label text="Liste des catégories" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2A3B4C;"/>
+                <TableView fx:id="CategoriesTableView" prefHeight="544.0" prefWidth="1217.0" style="-fx-background-color: transparent;">
+                    <columns>
+                        <TableColumn fx:id="idAvisColumn" prefWidth="100.0" text="ID" style="-fx-font-weight: bold;"/>
+                        <TableColumn fx:id="ideventcolumnnA" prefWidth="200.0" text="Nom" style="-fx-font-weight: bold;"/>
+                        <TableColumn fx:id="actionsCategorieColumn" prefWidth="200.0" text="Actions" style="-fx-font-weight: bold;"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </children>
+    </VBox>
+
+    <VBox fx:id="ParticipantsPage" prefHeight="907.0" prefWidth="1000.0" visible="false">
+        <children>
+            <HBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);"
+                  alignment="CENTER" spacing="20">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <Button mnemonicParsing="false" onAction="#GoToAddEventPagee"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                        prefHeight="46.0" prefWidth="187.0" text="Ajouter"/>
+            </HBox>
+
+            <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <Label text="Liste des participants" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2A3B4C;"/>
+                <TableView fx:id="participantsTableView" prefHeight="544.0" prefWidth="1217.0" style="-fx-background-color: transparent;">
+                    <columns>
+                        <TableColumn fx:id="idColumnParticipants" prefWidth="100.0" text="ID" style="-fx-font-weight: bold;"/>
+                        <TableColumn fx:id="ideventcolumnn" prefWidth="200.0" text="ID Événement" style="-fx-font-weight: bold;"/>
+                        <TableColumn fx:id="iduserrColumn" prefWidth="200.0" text="ID Utilisateur" style="-fx-font-weight: bold;"/>
+                        <TableColumn fx:id="dateColumnP" prefWidth="200.0" text="Date Participation" style="-fx-font-weight: bold;"/>
+                        <TableColumn fx:id="actionsColumnP" prefWidth="200.0" text="Actions" style="-fx-font-weight: bold;"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </children>
+    </VBox>
+
+    <Pane fx:id="ADDAcitivitesPage" prefHeight="907.0" prefWidth="1000.0" visible="false"/>
+    <Pane fx:id="UpdateAcitivitesPage" prefHeight="907.0" prefWidth="1000.0" visible="false"/>
+</VBox>

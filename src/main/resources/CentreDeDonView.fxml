@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.CentreDeDonViewController"
+            prefHeight="600.0" prefWidth="800.0">
+    <top>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="10.0" left="20.0"/>
+            </padding>
+            <children>
+                <Label text="Centre De Don Management" style="-fx-font-weight: bold;">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField" promptText="Search by name..." HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="searchButton" text="Search" onAction="#handleSearch"/>
+                    <Button fx:id="refreshButton" text="Refresh" onAction="#handleRefresh"/>
+                    <Button fx:id="addButton" text="Add New Centre" onAction="#handleAddCentre" 
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="centreTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50.0"/>
+                <TableColumn fx:id="nameColumn" text="Name" prefWidth="150.0"/>
+                <TableColumn fx:id="addressColumn" text="Address" prefWidth="200.0"/>
+                <TableColumn fx:id="telephoneColumn" text="Telephone" prefWidth="120.0"/>
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="150.0"/>
+                <TableColumn fx:id="createdAtColumn" text="Created Date" prefWidth="120.0"/>
+            </columns>
+            <placeholder>
+                <Label text="No centres available"/>
+            </placeholder>
+        </TableView>
+    </center>
+    
+    <bottom>
+        <HBox spacing="10.0" alignment="CENTER_RIGHT" padding="10">
+            <Button fx:id="editButton" text="Edit Selected" onAction="#handleEditCentre" 
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button fx:id="deleteButton" text="Delete Selected" onAction="#handleDeleteCentre" 
+                    style="-fx-background-color: #F44336; -fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+</BorderPane> 

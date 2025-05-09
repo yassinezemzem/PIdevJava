@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminStatisticsController">
+    <children>
+        <!-- Sidebar -->
+        <VBox prefHeight="700.0" prefWidth="250.0" style="-fx-background-color: linear-gradient(to bottom, #1E88E5, #42A5F5); -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);">
+            <children>
+                <Label alignment="CENTER" prefHeight="80.0" prefWidth="250.0" text="Admin Dashboard" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="30.0" />
+                    </VBox.margin>
+                </Label>
+                
+                <Button fx:id="btnAddCategory" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToAddCategory" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Ajouter Catégorie" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button fx:id="btnDisplayCategories" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToDisplayCategories" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Afficher Catégories" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button fx:id="btnAddProduct" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToAddProduct" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Ajouter Produit" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+                
+                <Button fx:id="btnDisplayProducts" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#navigateToDisplayProducts" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 0;" text="Afficher Produits" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+
+                <Button fx:id="btnStatistics" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: rgba(255,255,255,0.2); -fx-text-fill: white; -fx-background-radius: 0;" text="Statistiques" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                </Button>
+
+                <VBox VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </VBox>
+                
+                <Button fx:id="btnBackToHome" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#backToHome" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: rgba(0,0,0,0.2); -fx-text-fill: white; -fx-background-radius: 0;" text="Retour à l'accueil" textFill="WHITE">
+                    <padding>
+                        <Insets left="30.0" />
+                    </padding>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="20.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+        </VBox>
+        
+        <!-- Main Content -->
+        <AnchorPane layoutX="250.0" prefHeight="700.0" prefWidth="750.0" style="-fx-background-color: #F5F7FA;">
+            <children>
+                <!-- Header -->
+                <Label layoutX="40.0" layoutY="30.0" text="Statistiques du système" textFill="#2C3E50">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                
+                <!-- Content -->
+                <GridPane layoutX="30.0" layoutY="80.0" prefWidth="690.0" hgap="20" vgap="20">
+                    <children>
+                        <!-- Stats Cards -->
+                        <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2" spacing="20">
+                            <!-- Total Products Card -->
+                            <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" prefWidth="220.0" prefHeight="120.0">
+                                <padding>
+                                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+                                </padding>
+                                <Label text="Total des produits" style="-fx-font-size: 16px; -fx-text-fill: #7E57C2;">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="lblTotalProducts" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #303F9F;" />
+                            </VBox>
+                            
+                            <!-- Total Categories Card -->
+                            <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" prefWidth="220.0" prefHeight="120.0">
+                                <padding>
+                                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+                                </padding>
+                                <Label text="Total des catégories" style="-fx-font-size: 16px; -fx-text-fill: #26A69A;">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="lblTotalCategories" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #00796B;" />
+                            </VBox>
+                            
+                            <!-- Stock Value Card -->
+                            <VBox style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" prefWidth="220.0" prefHeight="120.0">
+                                <padding>
+                                    <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+                                </padding>
+                                <Label text="Quantité totale en stock" style="-fx-font-size: 16px; -fx-text-fill: #EF5350;">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label fx:id="lblTotalStock" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #D32F2F;" />
+                            </VBox>
+                        </HBox>
+
+                        <!-- Products by Category Chart -->
+                        <VBox GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" prefWidth="335.0" prefHeight="350.0">
+                            <padding>
+                                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+                            </padding>
+                            <Label text="Produits par catégorie" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                </VBox.margin>
+                            </Label>
+                            <PieChart fx:id="pieChartCategories" prefHeight="300.0" prefWidth="200.0" legendVisible="true" />
+                        </VBox>
+                        
+                        <!-- Stock by Product Chart -->
+                        <VBox GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #E0E0E0; -fx-border-width: 1; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);" prefWidth="335.0" prefHeight="350.0">
+                            <padding>
+                                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+                            </padding>
+                            <Label text="Stock par produit (Top 5)" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;">
+                                <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                </VBox.margin>
+                            </Label>
+                            <BarChart fx:id="barChartProducts" prefHeight="300.0" prefWidth="200.0" legendVisible="false">
+                                <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                </yAxis>
+                            </BarChart>
+                        </VBox>
+                    </children>
+                </GridPane>
+                
+                <!-- Refresh button -->
+                <Button fx:id="btnRefresh" layoutX="650.0" layoutY="30.0" mnemonicParsing="false" onAction="#refreshData" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 4;" text="Actualiser">
+                    <padding>
+                        <Insets top="8.0" right="15.0" bottom="8.0" left="15.0" />
+                    </padding>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane> 
