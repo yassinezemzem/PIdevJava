@@ -194,77 +194,45 @@ public class ServiceProviderFormController {
     private void setupMap() {
         webEngine = mapWebView.getEngine();
         webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-            if (newState == Worker.State.SUCCEEDED) {
-                try {
-                    JSObject window = (JSObject) webEngine.executeScript("window");
-                    window.setMember("javaConnector", new JavaConnector());
-
-                    Platform.runLater(() -> {
-                        webEngine.executeScript("initializeMap()");
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    showAlert("Error setting up map: " + e.getMessage());
-                }
-            }
+            // No JS-Java communication needed for this simple map
         });
 
         String mapHtml = """
             <!DOCTYPE html>
-            <html>
+            <html lang="en">
             <head>
-                <meta charset="utf-8">
-                <title>Current Location</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+                <meta charset="UTF-8">
+                <title>Leaflet Map</title>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
                 <style>
                     html, body { height: 100%; margin: 0; padding: 0; }
-                    #map { height: 100%; width: 100%; }
+                    #map { width: 100%; height: 100%; }
                 </style>
             </head>
             <body>
                 <div id="map"></div>
-                <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
                 <script>
-                    let map;
-                    let marker;
+                    var map = L.map('map').setView([36.8189, 10.1657], 13);
+                    
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
 
-                    function initializeMap() {
-                        map = L.map('map').setView([36.8189, 10.1657], 13);
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                            maxZoom: 18,
-                            attribution: '© OpenStreetMap contributors'
-                        }).addTo(map);
+                    var marker = L.marker([36.8189, 10.1657]).addTo(map)
+                        .bindPopup("Click map to change location").openPopup();
 
-                        addDefaultMarker();
-
-                        map.on('click', function(e) {
-                            updateMarkerPosition(e.latlng.lat, e.latlng.lng);
-                        });
-                    }
-
-                    function addDefaultMarker() {
-                        const center = map.getCenter();
-                        marker = L.marker([center.lat, center.lng]).addTo(map)
-                            .bindPopup("Default location - click map to change").openPopup();
-
-                        if (window.javaConnector) {
-                            window.javaConnector.updateCoordinates(center.lat, center.lng);
-                        }
-                    }
-
-                    function updateMarkerPosition(lat, lng) {
+                    map.on('click', function(e) {
                         if (marker) {
                             map.removeLayer(marker);
                         }
-
-                        marker = L.marker([lat, lng]).addTo(map)
+                        marker = L.marker(e.latlng).addTo(map)
                             .bindPopup("Selected location").openPopup();
-
+                        
                         if (window.javaConnector) {
-                            window.javaConnector.updateCoordinates(lat, lng);
+                            window.javaConnector.updateCoordinates(e.latlng.lat, e.latlng.lng);
                         }
-                    }
+                    });
                 </script>
             </body>
             </html>
